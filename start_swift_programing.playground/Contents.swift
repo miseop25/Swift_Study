@@ -23,7 +23,12 @@ for i in 0..<10 {
     testArray.append(i)
 }
 
+var triAraay = Array<Int>(repeatElement(0, count: 10))
 
+triAraay[1...3] = [1,1,1]
+
+triAraay.remove(at: 0)
+triAraay
 //testArray.remove(at: 0)
 testArray.reverse()
 testArray.removeLast()
