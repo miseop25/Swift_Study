@@ -44,103 +44,103 @@ class ViewController: UIViewController {
         
         showCalc.translatesAutoresizingMaskIntoConstraints = false
         showCalc.topAnchor.constraint(equalTo: margin.topAnchor ).isActive = true
-        showCalc.leftAnchor.constraint(equalTo: margin.leftAnchor, constant: 10).isActive = true
-        showCalc.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: -10 ).isActive = true
-        showCalc.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        showCalc.leftAnchor.constraint(equalTo: margin.leftAnchor).isActive = true
+        showCalc.rightAnchor.constraint(equalTo: margin.rightAnchor).isActive = true
+        showCalc.heightAnchor.constraint(equalTo: margin.heightAnchor, multiplier: 0.325).isActive=true
         
         
         button1.translatesAutoresizingMaskIntoConstraints = false
         button1.topAnchor.constraint(equalTo: showCalc.bottomAnchor, constant: 10).isActive = true
-        button1.leftAnchor.constraint(equalTo: margin.leftAnchor, constant: 0 ).isActive = true
-        button1.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        button1.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button1.leftAnchor.constraint(equalTo: margin.leftAnchor).isActive = true
+        button1.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
+        button1.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
 
         button2.translatesAutoresizingMaskIntoConstraints = false
         button2.topAnchor.constraint(equalTo: showCalc.bottomAnchor, constant: 10).isActive = true
-        button2.leftAnchor.constraint(equalTo: button1.rightAnchor, constant: 5 ).isActive = true
-        button2.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        button2.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button2.leftAnchor.constraint(equalTo: button1.rightAnchor, constant: 0 ).isActive = true
+        button2.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
+        button2.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
         
         button3.translatesAutoresizingMaskIntoConstraints = false
         button3.topAnchor.constraint(equalTo: showCalc.bottomAnchor, constant: 10).isActive = true
-        button3.leftAnchor.constraint(equalTo: button2.rightAnchor, constant: 5 ).isActive = true
-        button3.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        button3.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button3.leftAnchor.constraint(equalTo: button2.rightAnchor, constant: 0 ).isActive = true
+        button3.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
+        button3.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
         
         plusButton.translatesAutoresizingMaskIntoConstraints = false
         plusButton.topAnchor.constraint(equalTo: showCalc.bottomAnchor, constant: 10).isActive = true
-        plusButton.leftAnchor.constraint(equalTo: button3.rightAnchor, constant: 5).isActive = true
-        plusButton.rightAnchor.constraint(equalTo: margin.rightAnchor, constant: 0).isActive = true
+        plusButton.leftAnchor.constraint(equalTo: button3.rightAnchor).isActive = true
+        plusButton.rightAnchor.constraint(equalTo: margin.rightAnchor).isActive = true
         plusButton.bottomAnchor.constraint(equalTo: button3.bottomAnchor).isActive = true
         
         button4.translatesAutoresizingMaskIntoConstraints = false
-        button4.topAnchor.constraint(equalTo: button1.bottomAnchor, constant: 5).isActive = true
+        button4.topAnchor.constraint(equalTo: button1.bottomAnchor).isActive = true
         button4.leftAnchor.constraint(equalTo: margin.leftAnchor).isActive = true
-        button4.rightAnchor.constraint(equalTo: button1.rightAnchor).isActive = true
-        button4.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button4.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
+        button4.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
         
         button5.translatesAutoresizingMaskIntoConstraints = false
         button5.topAnchor.constraint(equalTo: button4.topAnchor).isActive = true
-        button5.leftAnchor.constraint(equalTo: button4.rightAnchor, constant: 5).isActive = true
-        button5.rightAnchor.constraint(equalTo: button2.rightAnchor).isActive = true
-        button5.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button5.leftAnchor.constraint(equalTo: button4.rightAnchor).isActive = true
+        button5.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
+        button5.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
         
         button6.translatesAutoresizingMaskIntoConstraints = false
         button6.topAnchor.constraint(equalTo: button5.topAnchor).isActive = true
-        button6.leftAnchor.constraint(equalTo: button5.rightAnchor, constant: 5).isActive = true
-        button6.rightAnchor.constraint(equalTo: button3.rightAnchor).isActive = true
-        button6.bottomAnchor.constraint(equalTo: button5.bottomAnchor).isActive = true
+        button6.leftAnchor.constraint(equalTo: button5.rightAnchor).isActive = true
+        button6.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
+        button6.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
         
         minusButton.translatesAutoresizingMaskIntoConstraints = false
-        minusButton.topAnchor.constraint(equalTo: plusButton.bottomAnchor, constant: 5).isActive = true
+        minusButton.topAnchor.constraint(equalTo: plusButton.bottomAnchor).isActive = true
         minusButton.bottomAnchor.constraint(equalTo: button6.bottomAnchor).isActive = true
-        minusButton.leftAnchor.constraint(equalTo: button6.rightAnchor, constant: 5).isActive = true
-        minusButton.rightAnchor.constraint(equalTo: margin.rightAnchor).isActive = true
+        minusButton.leftAnchor.constraint(equalTo: button6.rightAnchor).isActive = true
+        minusButton.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
         
         button7.translatesAutoresizingMaskIntoConstraints = false
-        button7.topAnchor.constraint(equalTo: button4.bottomAnchor, constant: 5).isActive = true
+        button7.topAnchor.constraint(equalTo: button4.bottomAnchor).isActive = true
         button7.leftAnchor.constraint(equalTo: margin.leftAnchor).isActive = true
-        button7.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button7.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        button7.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
+        button7.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
         
         button8.translatesAutoresizingMaskIntoConstraints = false
         button8.topAnchor.constraint(equalTo: button7.topAnchor).isActive = true
-        button8.leftAnchor.constraint(equalTo: button7.rightAnchor, constant: 5).isActive = true
-        button8.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        button8.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button8.leftAnchor.constraint(equalTo: button7.rightAnchor).isActive = true
+        button8.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
+        button8.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
         
         button9.translatesAutoresizingMaskIntoConstraints = false
         button9.topAnchor.constraint(equalTo: button7.topAnchor).isActive = true
-        button9.leftAnchor.constraint(equalTo: button8.rightAnchor, constant: 5).isActive = true
-        button9.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        button9.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        button9.leftAnchor.constraint(equalTo: button8.rightAnchor).isActive = true
+        button9.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
+        button9.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
         
         multButton.translatesAutoresizingMaskIntoConstraints = false
         multButton.topAnchor.constraint(equalTo: button7.topAnchor).isActive = true
-        multButton.leftAnchor.constraint(equalTo: button9.rightAnchor, constant: 5).isActive = true
-        multButton.rightAnchor.constraint(equalTo: margin.rightAnchor).isActive = true
-        multButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        multButton.leftAnchor.constraint(equalTo: button9.rightAnchor).isActive = true
+        multButton.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
+        multButton.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
         
         button0.translatesAutoresizingMaskIntoConstraints = false
-        button0.topAnchor.constraint(equalTo: button7.bottomAnchor, constant: 5).isActive = true
+        button0.topAnchor.constraint(equalTo: button7.bottomAnchor).isActive = true
         button0.leftAnchor.constraint(equalTo: margin.leftAnchor).isActive = true
-        button0.rightAnchor.constraint(equalTo: button8.rightAnchor).isActive = true
-        button0.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        button0.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.5).isActive = true
+        button0.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
         
         resultButton.translatesAutoresizingMaskIntoConstraints = false
         resultButton.topAnchor.constraint(equalTo: button0.topAnchor).isActive = true
-        resultButton.leftAnchor.constraint(equalTo: button0.rightAnchor, constant: 5).isActive = true
-        resultButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        resultButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        resultButton.leftAnchor.constraint(equalTo: button0.rightAnchor).isActive = true
+        resultButton.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
+        resultButton.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
         
         devideButton.translatesAutoresizingMaskIntoConstraints = false
         devideButton.topAnchor.constraint(equalTo: button0.topAnchor).isActive = true
-        devideButton.leftAnchor.constraint(equalTo: resultButton.rightAnchor, constant: 5).isActive = true
-        devideButton.rightAnchor.constraint(equalTo: margin.rightAnchor).isActive = true
-        devideButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        devideButton.leftAnchor.constraint(equalTo: resultButton.rightAnchor).isActive = true
+        devideButton.widthAnchor.constraint(equalTo: margin.widthAnchor , multiplier: 0.25).isActive = true
+        devideButton.heightAnchor.constraint(equalTo: margin.heightAnchor , multiplier: 0.125).isActive = true
         
         clearButton.translatesAutoresizingMaskIntoConstraints = false
-        clearButton.topAnchor.constraint(equalTo: button0.bottomAnchor, constant: 5).isActive = true
+        clearButton.topAnchor.constraint(equalTo: button0.bottomAnchor).isActive = true
         clearButton.leftAnchor.constraint(equalTo: margin.leftAnchor).isActive = true
         clearButton.rightAnchor.constraint(equalTo: margin.rightAnchor).isActive = true
         clearButton.bottomAnchor.constraint(equalTo: margin.bottomAnchor).isActive = true
@@ -213,6 +213,7 @@ class ViewController: UIViewController {
         clearButton.backgroundColor = UIColor.orange
         
         showCalc.text = "0"
+        showCalc.font =  UIFont.systemFont(ofSize: 50)
         showCalc.textColor = UIColor.black
         showCalc.backgroundColor = UIColor.white
         showCalc.textAlignment = .right
