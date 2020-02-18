@@ -30,14 +30,22 @@ class ViewController: UIViewController {
     
     let showCalc : UILabel = UILabel()
     
+    var ansShow: String = "0"
+    var numBuffer: Float = 0
+    var stack : Array<String> = []
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setTitle()
         self.setConstraint()
+        self.addButtonTarget()
         
         // Do any additional setup after loading the view.
     }
     
+    
+    // MARK: -- SetConstraint
     @available(iOS 11.0, *)
     func setConstraint() {
         let margin  = view.safeAreaLayoutGuide
@@ -145,13 +153,8 @@ class ViewController: UIViewController {
         clearButton.rightAnchor.constraint(equalTo: margin.rightAnchor).isActive = true
         clearButton.bottomAnchor.constraint(equalTo: margin.bottomAnchor).isActive = true
         
-        
-        
-        
-        
     }
-    
-    
+    // MARK: SetTitle
     func setTitle() {
         
         button0.setTitle("0", for: .normal)
@@ -187,9 +190,14 @@ class ViewController: UIViewController {
         button9.setTitleColor(.white, for: .normal)
         
         plusButton.setTitleColor(.black, for: .normal)
+        plusButton.setTitleColor(.white, for: .selected)
         minusButton.setTitleColor(.black, for: .normal)
+        minusButton.setTitleColor(.white, for: .selected)
         multButton.setTitleColor(.black, for: .normal)
+        multButton.setTitleColor(.white, for: .selected)
         devideButton.setTitleColor(.black, for: .normal)
+        devideButton.setTitleColor(.white, for: .selected)
+        
         resultButton.setTitleColor(.black, for: .normal)
         clearButton.setTitleColor(.black, for: .normal)
         
@@ -212,7 +220,7 @@ class ViewController: UIViewController {
         resultButton.backgroundColor = UIColor.orange
         clearButton.backgroundColor = UIColor.orange
         
-        showCalc.text = "0"
+        showCalc.text = ansShow
         showCalc.font =  UIFont.systemFont(ofSize: 50)
         showCalc.textColor = UIColor.black
         showCalc.backgroundColor = UIColor.white
@@ -235,10 +243,210 @@ class ViewController: UIViewController {
         self.view.addSubview(devideButton)
         self.view.addSubview(resultButton)
         self.view.addSubview(clearButton)
-        
         self.view.addSubview(showCalc)
         
     }
+    
+    
+    func addButtonTarget()  {
+        button0.addTarget(self, action: #selector(button0Click), for: .touchUpInside)
+        button1.addTarget(self, action: #selector(button1Click), for: .touchUpInside)
+        button2.addTarget(self, action: #selector(button2Click), for: .touchUpInside)
+        button3.addTarget(self, action: #selector(button3Click), for: .touchUpInside)
+        button4.addTarget(self, action: #selector(button4Click), for: .touchUpInside)
+        button5.addTarget(self, action: #selector(button5Click), for: .touchUpInside)
+        button6.addTarget(self, action: #selector(button6Click), for: .touchUpInside)
+        button7.addTarget(self, action: #selector(button7Click), for: .touchUpInside)
+        button8.addTarget(self, action: #selector(button8Click), for: .touchUpInside)
+        button9.addTarget(self, action: #selector(button9Click), for: .touchUpInside)
+        
+        plusButton.addTarget(self, action: #selector(plusButtonClick), for: .touchUpInside)
+        minusButton.addTarget(self, action: #selector(minusButtonClick), for: .touchUpInside)
+        multButton.addTarget(self, action: #selector(multButtonClick), for: .touchUpInside)
+        devideButton.addTarget(self, action: #selector(devideButtonClick), for: .touchUpInside)
+        resultButton.addTarget(self, action: #selector(resultButtonClick), for: .touchUpInside)
+        clearButton.addTarget(self, action: #selector(clearButtonClick), for: .touchUpInside)
+
+        
+    }
+    
+    
+    // MARK: Action
+    @objc func button0Click(){
+        if ansShow != "0" {
+            ansShow += "0"
+            showCalc.text = ansShow
+        }
+        
+    }
+    @objc func button1Click(){
+
+        if ansShow != "0" {
+            ansShow += "1"
+        }else {
+            ansShow = "1"
+        }
+        showCalc.text = ansShow
+    }
+    @objc func button2Click(){
+
+        if ansShow != "0" {
+            ansShow += "2"
+        }else {
+            ansShow = "2"
+        }
+        showCalc.text = ansShow
+    }
+    @objc func button3Click(){
+
+        if ansShow != "0" {
+            ansShow += "3"
+        }else {
+            ansShow = "3"
+        }
+        showCalc.text = ansShow
+        
+    }
+    @objc func button4Click(){
+
+        if ansShow != "0" {
+            ansShow += "4"
+        }else {
+            ansShow = "4"
+        }
+        showCalc.text = ansShow
+    }
+    @objc func button5Click(){
+
+        if ansShow != "0" {
+            ansShow += "5"
+        }else {
+            ansShow = "5"
+        }
+        showCalc.text = ansShow
+    }
+    @objc func button6Click(){
+
+        if ansShow != "0" {
+            ansShow += "6"
+        }else {
+            ansShow = "6"
+        }
+        showCalc.text = ansShow
+    }
+    @objc func button7Click(){
+
+        if ansShow != "0" {
+            ansShow += "7"
+        }else {
+            ansShow = "7"
+        }
+        showCalc.text = ansShow
+    }
+    @objc func button8Click(){
+
+        if ansShow != "0" {
+            ansShow += "8"
+        }else {
+            ansShow = "8"
+        }
+        showCalc.text = ansShow
+    }
+    @objc func button9Click(){
+
+        if ansShow != "0" {
+            ansShow += "9"
+        }else {
+            ansShow = "9"
+        }
+        showCalc.text = ansShow
+        
+    }
+    
+    @objc func plusButtonClick(){
+        if buttenIsSelected(){
+            stack.popLast()
+        }
+        stack.append("+")
+        plusButton.isSelected = true
+
+    }
+    @objc func minusButtonClick(){
+        if buttenIsSelected(){
+            stack.popLast()
+        }
+        stack.append("-")
+        minusButton.isSelected = true
+
+    }
+    @objc func multButtonClick(){
+        if buttenIsSelected(){
+            stack.popLast()
+        }
+        stack.append("*")
+        multButton.isSelected = true
+
+    }
+    @objc func devideButtonClick(){
+        if buttenIsSelected(){
+            stack.popLast()
+        }
+        stack.append("/")
+        devideButton.isSelected = true
+
+    }
+    
+    
+    @objc func resultButtonClick(){
+        let num = Float(showCalc.text!)!
+        let cal = stack.popLast()
+        var answer : Float = 0
+        if cal == "+"{
+            answer = num + numBuffer
+        }else if cal == "-"{
+            answer = numBuffer - num
+        }else if cal == "*"{
+            answer = numBuffer * num
+        }else if cal == "/"{
+            answer = numBuffer / num
+        }
+        showCalc.text = String(answer)
+        saveNum()
+        
+        print(num)
+        
+    }
+    
+    @objc func clearButtonClick(){
+        ansShow = "0"
+        numBuffer = 0
+        stack = []
+        showCalc.text = ansShow
+        buttenIsSelected()
+        
+    }
+    
+    
+    func buttenIsSelected() -> Bool{
+        if plusButton.isSelected || minusButton.isSelected || multButton.isSelected || devideButton.isSelected {
+            plusButton.isSelected = false
+            minusButton.isSelected = false
+            multButton.isSelected = false
+            devideButton.isSelected = false
+            return true
+        }else {
+            saveNum()
+            return false
+        }
+    }
+    
+    func saveNum(){
+        let num = Float(showCalc.text!)!
+        numBuffer = num
+        ansShow = ""
+    }
+
+
     
 
 }
