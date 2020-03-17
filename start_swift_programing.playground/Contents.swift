@@ -19,10 +19,13 @@ dump(ct)
 
 // 배열 기본 연습
 var testArray : Array<Int> = Array<Int>()
+testArray.popLast()
+
 for i in 0..<10 {
     testArray.append(i)
 }
-
+try testArray.popLast()
+testArray
 var triAraay = Array<Int>(repeatElement(0, count: 10))
 
 triAraay[1...3] = [1,1,1]
@@ -79,7 +82,6 @@ print(begining)
 type(of: begining)
 let newString = String(begining)
 type(of: newString)
-
 
 
 

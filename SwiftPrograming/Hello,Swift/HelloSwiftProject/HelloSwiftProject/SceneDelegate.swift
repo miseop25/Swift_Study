@@ -1,13 +1,12 @@
 //
 //  SceneDelegate.swift
-//  calculaterStudy
+//  HelloSwiftProject
 //
-//  Created by Minseop Kim on 2020/02/18.
+//  Created by Minseop Kim on 2020/03/17.
 //  Copyright © 2020 Minseop Kim. All rights reserved.
 //
 
 import UIKit
-
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
