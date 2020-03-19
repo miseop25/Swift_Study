@@ -25,6 +25,22 @@ import UIKit
  # Type Safety
  */
 
+// 형식 안정성 , 값을 잘못된 형식으로 처리하는 것을 방지하는 Swift의 특징이다.
+
+//let str: String = 123 이런식으로 문자열에 정수를 입력하는 것은 용남되지 않는다.
+// 정수와 실수 등을 모두 구분한다.
+
+let a: Int = 10
+let b: Int8 = 11
+//let c = a + b     -> 이렇게 형식이 다른거를 허용하지 않는다.
+// 자료형의 이름이 다르다면 서로 호환되지 않는다!!
+
+let rate: Double = 1.94
+let amt = 10_000_000
+let result = rate * Double(amt)
+Int(result)
+
+
 
 
 

@@ -24,5 +24,18 @@ import UIKit
 /*:
  # Boolean
  */
+// 참과 거짓을 표현하는 자료형이다.
+
+let valid:Bool = true // swift 에서는 소문자로 표시해야 한다.
+// Swift 에서는 Bool 자료형에 0,1 을 사용하면 안된다 오로지 Ture 와 false 를 사용해야 한다.
+
+let str = ""
+str.isEmpty     //문자열이 비어 있으면 true를 리턴하게 된다.
+
+
+if valid {
+    print("OK")
+}
+
 
 

@@ -28,7 +28,15 @@ import UIKit
  ## Syntax
  ![TypeAnnotation](type-annotation.png)
  */
+// 자료형을 직접 지정하는 것을 Type Annotation 이라고 한다.
+// 콜론 : 과 자료형은 한칸 띄워 주어서 진행을 하면 가독성이 좋다
 
+let num: Int = 123
 
+let double_num: Double
+
+double_num = 123.4
+
+// 컴파일 시간을 단축 시키기 위해서 Type Annotataion 을 많이 사용한다.
 
 //: [Next](@next)

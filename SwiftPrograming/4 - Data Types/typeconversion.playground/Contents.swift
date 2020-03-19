@@ -28,9 +28,16 @@ import UIKit
  ## Syntax
  ![TypeConversion](type-conversion.png)
  */
+// type conversion 과 Type Casting 이랑은 다른 것이니 유의 할것
 
+let a = 123
+let b = 4.56
 
+var c = Double(a) + b
+// 컨버젼이 성공했다면 새로운 값을 만들어 놓고 연산을 실행 하는 것이다.
 
+let str = "123"
+let num = Int(str)
 
 
 

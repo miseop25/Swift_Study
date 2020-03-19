@@ -25,11 +25,24 @@ import UIKit
  # Strings
  */
 
+//  Swift 에서 문자열은 큰 따움표 안에 있는 문자들이다.
+"123" // -> 숫자로 구성되어 있지만 큰 따움표 안에 표시되어 있기 때문에 문자열이다.
+let str = "1" // 하나의 문자가 표함되어 있긴 하지만 여전히 문자열이다.
+type(of: str)
+
+
 
 
 /*:
  # Character
  */
+let ch:Character = "1"
+type(of: ch)
+// Swift 에서는 문자를 이렇게 처리를 해야 한다.
+//character  자리에는 하나의 문자로만 진행을 해야 한다. 두개 이상된다면 항상 String 이다.
+
+let char:Character = " "
+// 문자에 빈공간을 만들고 싶다면 이렇게 공백을 두고 있어야 한다.
 
 
 

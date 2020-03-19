@@ -27,6 +27,15 @@ import UIKit
  ![typealias](typealias.png)
  */
 
+// 타입 알리안스는 기존 자료형에 새로운 이름을 추가하는 문법임
+
+typealias Coordinate = Double
+// 별명을 지어주는 것이다. 완전히 새로운건 아님
+let lat: Coordinate = 12.34
+let lon: Coordinate = 56.78
+
+// 무엇을 저장하는 상수인지를 명확하게 알 수 있어서 사용 하는 것이다.
+
 
 
 

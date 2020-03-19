@@ -25,6 +25,16 @@ import UIKit
  # Type Inference
  */
 
+// 형식 추론
+
+let num = 123
+type(of: num)
+
+// 자료형을 명시하지 않았다면 알아서 형식을 추론해서 적용이 되게 된다.
+// int 가 정수를 가장 빨리 처리하기 때문에 형식 추론을 하게 되면 int로 된다.
+
+let tmep = 12.3
+type(of: tmep)
 
 
 
