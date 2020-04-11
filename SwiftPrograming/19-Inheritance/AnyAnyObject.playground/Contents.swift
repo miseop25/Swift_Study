@@ -26,16 +26,27 @@ import Foundation
  # Any, AnyObject
  */
 
+// 범용 자료형
+// 코드의 유용성을 높여주지만 남용할 경우 코드의 가독성이 떨어지고 유지보수가 어렵다
+// any 는 모든 형식 저장가능
+// any object는 모든 클래스를 저장 할 수 있다.
 
+var data: Any = 1
+data = 2.3
+data = "Stt"
+data = [1,2,3]
+data = NSString()
+// 이렇게 어떤 형식이라도 모두 적용 시킬 수 있다.
 
+var obj: AnyObject = NSString()
+// 여기에는 참조형식만 저장 할 수 있다.
 
+// Any로 이루어진 타입 이레이징이 많음 -> 향식을 지워야 함
+// any로 이루어진거 타입 케스팅을 진행
 
-
-
-
-
-
-
+if let str = data as? String {
+    print(str.count)
+}
 
 /*:
  # Type Casting Pattern
@@ -43,16 +54,13 @@ import Foundation
 
 
 
-
-
-
-
-
-
-
-
-
-
-
+switch data {
+case let str as String:
+    print(str.count)
+case let list as [Int]:
+    print(list.count)
+default:
+    break
+}
 
 
