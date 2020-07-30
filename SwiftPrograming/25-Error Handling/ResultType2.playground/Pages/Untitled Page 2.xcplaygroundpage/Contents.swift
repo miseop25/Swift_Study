@@ -19,72 +19,63 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 //
-import UIKit
+//: [Previous](@previous)
+
+import Foundation
 
 /*:
- # Closure Capture List
+ # Result Type in Async Code
  */
 
-class Car {
-   var totalDrivingDistance = 0.0
-   var totalUsedGas = 0.0
-   
-   lazy var gasMileage: () -> Double = { [unowned self ] in
-      return self.totalDrivingDistance / self.totalUsedGas
-   }
-   
-   func drive() {
-      self.totalDrivingDistance = 1200.0
-      self.totalUsedGas = 73.0
-   }
-   
-   deinit {
-      print("car deinit")
-   }
+guard let url = URL(string: "http://kxcoding-study.azurewebsites.net/api/books") else {
+   fatalError("invalid url")
 }
 
-var myCar: Car? = Car()
-myCar?.drive()
-myCar?.gasMileage()
-myCar = nil
+struct BookListData: Codable {
+   let code: Int
+   let totalCount: Int
+   let list: [Book]
+}
+
+struct Book: Codable {
+   let title: String
+}
+
+enum ApiError: Error {
+   case general
+   case invalidFormat
+}
+
+typealias CompletionHandler = (BookListData?, Error?) -> ()
+
+func parseBookList(completion: @escaping CompletionHandler) {
+   let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+      if let error = error {
+         completion(nil, error)
+         return
+      }
+
+      guard let data = data else {
+         completion(nil, nil)
+         return
+      }
+
+      do {
+         let list = try JSONDecoder().decode(BookListData.self, from: data)
+         completion(list, nil)
+      } catch {
+         completion(nil, error)
+      }
+   }
+   task.resume()
+}
 
 
 
 
-/*:
- ![1](1.png)
- ![2](2.png)
- 
- ## Value Type
- ![closurecapturelist-valuetype](closurecapturelist-valuetype.png)
- */
-
-var a = 0
-var b = 0
-let c = { [a] in print(a, b)}
-// 클로져가 값을 캡쳐할 때에는 복사본이 아니라 참조값이 적용됨
-// 클로져 캡쳐 리스트로 진행하면 참조가 아니라 복사본이 캡쳐된다.
-
-a = 1
-b = 2
-c()
-/*:
- ## Reference Type
- ![closurecapturelist](closurecapturelist.png)
- */
-
-// weak 는 약한 참조 unowned는 비소유 참조를 진행
 
 
 
 
 
-
-
-
-
-
-
-
-
-
+//: [Next](@next)

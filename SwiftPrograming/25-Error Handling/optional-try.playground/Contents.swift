@@ -22,69 +22,46 @@
 import UIKit
 
 /*:
- # Closure Capture List
+ # optional try
+ ![optional-try](optional-try.png)
  */
 
-class Car {
-   var totalDrivingDistance = 0.0
-   var totalUsedGas = 0.0
-   
-   lazy var gasMileage: () -> Double = { [unowned self ] in
-      return self.totalDrivingDistance / self.totalUsedGas
-   }
-   
-   func drive() {
-      self.totalDrivingDistance = 1200.0
-      self.totalUsedGas = 73.0
-   }
-   
-   deinit {
-      print("car deinit")
-   }
+enum DataParsingError: Error {
+   case invalidType
+   case invalidField
+   case missingRequiredField(String)
 }
 
-var myCar: Car? = Car()
-myCar?.drive()
-myCar?.gasMileage()
-myCar = nil
+func parsing(data: [String: Any]) throws {
+   guard let _ = data["name"] else {
+      throw DataParsingError.missingRequiredField("name")
+   }
+   
+   guard let _ = data["age"] as? Int else {
+      throw DataParsingError.invalidType
+   }
+   
+   // Parsing
+}
+
+// forced error는 실행을 중단함 -> 런터임 에러가 발생하게 된다.
+
+if let _ = try? parsing(data: [:]) {
+    print("success")
+}else {
+    print("error")
+}
 
 
+do {
+    try parsing(data: [:])
+    print("success")
+} catch {
+    print("error")
+}
 
+try? parsing(data: [:])
 
-/*:
- ![1](1.png)
- ![2](2.png)
- 
- ## Value Type
- ![closurecapturelist-valuetype](closurecapturelist-valuetype.png)
- */
-
-var a = 0
-var b = 0
-let c = { [a] in print(a, b)}
-// 클로져가 값을 캡쳐할 때에는 복사본이 아니라 참조값이 적용됨
-// 클로져 캡쳐 리스트로 진행하면 참조가 아니라 복사본이 캡쳐된다.
-
-a = 1
-b = 2
-c()
-/*:
- ## Reference Type
- ![closurecapturelist](closurecapturelist.png)
- */
-
-// weak 는 약한 참조 unowned는 비소유 참조를 진행
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+try! parsing(data: ["name":"minseop", "age": 26])
+try! parsing(data: [:])
+// forced try는 값을 전달하지 않고 바로 에러를 발생시켜 버림! -> 런타임 에러 발생한다.

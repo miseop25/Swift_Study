@@ -22,68 +22,54 @@
 import UIKit
 
 /*:
- # Closure Capture List
+ # Error Handling
+ 
+ ![throw](throw.png)
+ ![throws](throws.png)
  */
 
-class Car {
-   var totalDrivingDistance = 0.0
-   var totalUsedGas = 0.0
-   
-   lazy var gasMileage: () -> Double = { [unowned self ] in
-      return self.totalDrivingDistance / self.totalUsedGas
-   }
-   
-   func drive() {
-      self.totalDrivingDistance = 1200.0
-      self.totalUsedGas = 73.0
-   }
-   
-   deinit {
-      print("car deinit")
-   }
+// error 프로토콜을 채용하면 에러 형식이 된다.
+// 에러를 던진다 해서 throw 를 사용한다.
+// 아무데서나 쓰는게 아니라 코드불록이 에러를 던진다고 해야한다.
+// 함수 메소드 생성자 클로져에서는 throws 를 사용 혼동되지 않도로 주의 할 것
+enum DataParsingError: Error {
+    case invalidType
+    case invalidField
+    case missingRequiredField(String)
+       
 }
 
-var myCar: Car? = Car()
-myCar?.drive()
-myCar?.gasMileage()
-myCar = nil
+func parsing(data: [String: Any]) throws {
+    guard let _ = data["name"] else {
+        throw DataParsingError.missingRequiredField("name")
+    }
+    
+    guard let _ = data["age"] as? Int else {
+        throw DataParsingError.invalidType
+    }
+//     throw 는 에러가 발생했을 때만 호출 되어야 함
+}
+
+
+
 
 
 
 
 /*:
- ![1](1.png)
- ![2](2.png)
- 
- ## Value Type
- ![closurecapturelist-valuetype](closurecapturelist-valuetype.png)
+ # try Statements
+ ![try](try.png)
  */
 
-var a = 0
-var b = 0
-let c = { [a] in print(a, b)}
-// 클로져가 값을 캡쳐할 때에는 복사본이 아니라 참조값이 적용됨
-// 클로져 캡쳐 리스트로 진행하면 참조가 아니라 복사본이 캡쳐된다.
+// throw를 호출할때는 try를 주로 사용한다.
+// 느낌표 붙인거는 가능한 사용하지 않는 것 이 좋다.
 
-a = 1
-b = 2
-c()
-/*:
- ## Reference Type
- ![closurecapturelist](closurecapturelist.png)
- */
+try? parsing(data: [:])
 
-// weak 는 약한 참조 unowned는 비소유 참조를 진행
-
-
-
-
-
-
-
-
-
-
+// 에러를 캐치하는 방법!
+// 1. do - catch Statements
+// 2. try Expression + Opuional binding
+// 3. hand over
 
 
 

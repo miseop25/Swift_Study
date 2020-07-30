@@ -22,69 +22,51 @@
 import UIKit
 
 /*:
- # Closure Capture List
+ # defer Statements
+ ![defer](defer.png)
  */
 
-class Car {
-   var totalDrivingDistance = 0.0
-   var totalUsedGas = 0.0
-   
-   lazy var gasMileage: () -> Double = { [unowned self ] in
-      return self.totalDrivingDistance / self.totalUsedGas
-   }
-   
-   func drive() {
-      self.totalDrivingDistance = 1200.0
-      self.totalUsedGas = 73.0
-   }
-   
-   deinit {
-      print("car deinit")
-   }
+
+// defer 문은 코드의 실행을 스코프가 실행하는 시점으로 연기시킨다.
+// defer문이 폼함된 스코프의 실행이 종료될때 까지 연기된다.
+
+func processFile(path: String ) {
+    print("1")
+    let file = FileHandle(forReadingAtPath: path)
+    
+    defer {
+        print("2")
+        file?.closeFile()
+//         defer 문의 시점은 함수가 종료되는 시점에 실행된다.
+//         함수 코드가 아무리 복잡하더라도 언제나 close 파일이 실행된다.
+//        스코프 시작지점에서 defer 문을 구현한다.
+    }
+    
+    if path.hasSuffix(".jpg") {
+        print("3")
+        return
+    }
+    print("4")
+    
+}
+processFile(path: "file.swift")
+print("==============")
+processFile(path: "file.jpg")
+
+
+
+func testDefer() {
+    defer {
+        print(1)
+    }
+    defer {
+        print(2)
+    }
+    defer {
+        print(3)
+    }
 }
 
-var myCar: Car? = Car()
-myCar?.drive()
-myCar?.gasMileage()
-myCar = nil
-
-
-
-
-/*:
- ![1](1.png)
- ![2](2.png)
- 
- ## Value Type
- ![closurecapturelist-valuetype](closurecapturelist-valuetype.png)
- */
-
-var a = 0
-var b = 0
-let c = { [a] in print(a, b)}
-// 클로져가 값을 캡쳐할 때에는 복사본이 아니라 참조값이 적용됨
-// 클로져 캡쳐 리스트로 진행하면 참조가 아니라 복사본이 캡쳐된다.
-
-a = 1
-b = 2
-c()
-/*:
- ## Reference Type
- ![closurecapturelist](closurecapturelist.png)
- */
-
-// weak 는 약한 참조 unowned는 비소유 참조를 진행
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+testDefer()
+// defer문은 여러개 써도 무방하나 하나의 defer 문만 사용하는 것이 좋다.
+// defer 문을 여러개 사용했을 때에는 스택처럼 쌓이게 된다. FILO 방식임
