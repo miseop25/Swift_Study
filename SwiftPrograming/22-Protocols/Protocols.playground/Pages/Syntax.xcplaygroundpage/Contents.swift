@@ -70,9 +70,12 @@ protocol SomethingObject: AnyObject, Something {
 
 class Object: SomethingObject {
     func doSomething() {
-        <#code#>
+        print("Object")
     }
 // 이렇게 채용하고 있는 것도 진행 해 주어야 한다.
     
     
 }
+
+var a = Object()
+a.doSomething()
