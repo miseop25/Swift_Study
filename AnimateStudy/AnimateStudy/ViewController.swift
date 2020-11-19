@@ -24,7 +24,8 @@ class ViewController: UIViewController {
             self.videoView.frame = CGRect(x: 150, y: 100, width: 100, height: 100)
 
             self.videoView.backgroundColor = UIColor.systemBlue
-        }))
+        })
+        )
 
         print("alpa : ",self.videoView.alpha)
     }
