@@ -36,7 +36,7 @@ let b = 4.56
 var c = Double(a) + b
 // 컨버젼이 성공했다면 새로운 값을 만들어 놓고 연산을 실행 하는 것이다.
 
-let str = "123"
+let str = "김민섭"
 let num = Int(str)
 
 
