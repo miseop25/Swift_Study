@@ -39,6 +39,7 @@ if let downCasting = m as? Song {
 
 if let upCasting = mySong as? Media {
     print("Upcasting 성공", upCasting.name)
+    
 }else {
     print("Upcasting 실패")
 }
